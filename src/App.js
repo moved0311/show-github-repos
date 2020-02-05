@@ -41,7 +41,7 @@ class  App extends Component {
     window.addEventListener('scroll', this.handleScroll);
   }
   handleScroll(event){
-    let threshold = 3;
+    let threshold = 5;
     if(Math.abs(window.innerHeight + document.documentElement.scrollTop - document.documentElement.offsetHeight) <= threshold){
       console.log('page: ',  this.state.page);
       this.setState({page: this.state.page + 1});
