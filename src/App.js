@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import { Button,Form,Col, Row } from 'react-bootstrap';
 import ShowCard from './ShowCard';
-
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-158033292-2');
+ReactGA.pageview(window.location.pathname + window.location.search);
 const Formstyle = {
   padding: '10px',
   background: '#eee',
@@ -26,7 +28,8 @@ class  App extends Component {
     const url = `https://api.github.com/users/${user}/repos?page=${page}&per_page=5`;
     var self = this;
     xhr.open('GET', url, true);
-
+    //solve 403 forbidden problem. 
+   // xhr.setRequestHeader('Authorization', 'token f6060d8a6bfe3bc0a4e3f7ffcbe2e3bb7082dbe0');
     
     xhr.onload = function(){
       // console.log(JSON.parse(this.response));
